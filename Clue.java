@@ -11,7 +11,7 @@ public class Clue {
      * @requires elements != null
      * @param elements um array de LetterStatus que representa a pista
      */
-    public Clue(LetterStatus[] elements){
+    public Clue(LetterStatus[] elements){  
         this.elements = elements;
         this.wordSize = elements.length;
         this.orderNumber = getOrderNumber();
@@ -128,7 +128,7 @@ public class Clue {
      */
     private int getOrderNumber() {
         int orderNumber = 0;
-        
+
         for(int i = 0; i < wordSize; i++) {
             switch (elements[i]) {
                 case INEXISTENT:

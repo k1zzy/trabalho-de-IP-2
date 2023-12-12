@@ -5,6 +5,6 @@ public class Test {
 
             int orderNumber = clue.orderNumber();
 
-            System.out.println(orderNumber);
+            System.out.println(clue.toString());
         }
 }
