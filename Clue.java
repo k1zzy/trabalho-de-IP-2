@@ -26,9 +26,9 @@ public class Clue {
      * @param wordSize o tamanho das palavras
      */
     public Clue(int orderNumber, int wordSize) {
-        this.elements = getElements(orderNumber);
         this.wordSize = wordSize;
         this.orderNumber = orderNumber;
+        this.elements = getElements(orderNumber);
     }
 
     /**
@@ -102,28 +102,21 @@ public class Clue {
      */
     private LetterStatus[] getElements(int orderNumber) {
         LetterStatus[] elements = new LetterStatus[wordSize];
-        int[] numeros = new int[wordSize];
-        int numeroAtual = 0;
-        orderNumber--; 
+        int number = (orderNumber-1);
 
-        while(orderNumber > 0) {
-            numeros[numeroAtual] = orderNumber % 3;
-            orderNumber /= 3;
-            numeroAtual++;
-        }
-
-        for(int j = 0; j < wordSize; j++) {
-            switch (numeros[j]) {
+        for(int i = (wordSize - 1); i >= 0; i--) {
+            switch (number % 3) {
+                case 0:
+                    elements[i] = LetterStatus.INEXISTENT;
+                    break;
                 case 1:
-                    elements[j] = LetterStatus.INEXISTENT;
+                    elements[i] = LetterStatus.WRONG_POS;
                     break;
                 case 2:
-                    elements[j] = LetterStatus.WRONG_POS;
-                    break;
-                case 3:
-                    elements[j] = LetterStatus.CORRECT_POS;
+                    elements[i] = LetterStatus.CORRECT_POS;
                     break;
             }
+            number /= 3;
         }
         return elements;
     }
@@ -135,22 +128,21 @@ public class Clue {
      */
     private int getOrderNumber() {
         int orderNumber = 0;
-        int elevado = 0;
-
+        
         for(int i = 0; i < wordSize; i++) {
             switch (elements[i]) {
                 case INEXISTENT:
-                    orderNumber += 1 * Math.pow(3, elevado);
+                    orderNumber += 0;
                     break;
                 case WRONG_POS:
-                    orderNumber += 2 * Math.pow(3, elevado);
+                    orderNumber += 1;
                     break;
                 case CORRECT_POS:
-                    orderNumber += 3 * Math.pow(3, elevado);
+                    orderNumber += 2;
                     break;
             }
-            elevado++;
+            orderNumber *= 3;
         }
-        return orderNumber;
+        return (orderNumber / 3) + 1; //processo inverso ao da função getElements
     }
 }

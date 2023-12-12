@@ -1,7 +1,10 @@
 public class Test {
     public static void main(String[] args) {
-            Clue clue = new Clue(2, 3);
+            LetterStatus[] elements = {LetterStatus.CORRECT_POS, LetterStatus.WRONG_POS, LetterStatus.INEXISTENT};
+            Clue clue = new Clue(elements);
 
-            System.out.println(clue.letterStatus());
+            int orderNumber = clue.orderNumber();
+
+            System.out.println(orderNumber);
         }
 }
