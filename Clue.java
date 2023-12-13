@@ -4,7 +4,7 @@ public class Clue {
     private int orderNumber;
     private final int MAX_ORDERNUMBER = (int) Math.pow(wordSize, 3);
     //private final int MIN_ORDERNUMBER = 1;
-PIXA
+
     /**
      * Representa uma pista de um jogo Ipurdle
      * 
