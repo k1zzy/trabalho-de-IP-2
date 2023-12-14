@@ -2,7 +2,8 @@ public class Clue {
     private LetterStatus[] elements;
     private int wordSize;
     private int orderNumber;
-    private final int MAX_ORDERNUMBER = (int) Math.pow(wordSize, 3);
+    private final int MAX_ORDERNUMBER;
+    
     //private final int MIN_ORDERNUMBER = 1;
 
     /**
@@ -15,6 +16,7 @@ public class Clue {
         this.elements = elements;
         this.wordSize = elements.length;
         this.orderNumber = getOrderNumber();
+        MAX_ORDERNUMBER = (int) Math.pow(3, wordSize);
     }	
 
     /**
@@ -29,6 +31,7 @@ public class Clue {
         this.wordSize = wordSize;
         this.orderNumber = orderNumber;
         this.elements = getElements(orderNumber);
+        MAX_ORDERNUMBER = (int) Math.pow(3, wordSize);
     }
 
     /**

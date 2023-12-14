@@ -1,10 +1,11 @@
 public class Test {
     public static void main(String[] args) {
-            LetterStatus[] elements = {LetterStatus.CORRECT_POS, LetterStatus.WRONG_POS, LetterStatus.INEXISTENT};
+            LetterStatus[] elements = {LetterStatus.CORRECT_POS, LetterStatus.CORRECT_POS, LetterStatus.CORRECT_POS};
             Clue clue = new Clue(elements);
+            Clue clue2 = new Clue(22, 3);
 
-            int orderNumber = clue.orderNumber();
 
-            System.out.println(clue.toString());
+            System.out.println(pixa());
+            System.out.println(clue.orderNumber());
         }
 }

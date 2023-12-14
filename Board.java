@@ -86,9 +86,4 @@ public class Board {
 
         return board.toString();
     }
-
-    // nao sei se isto é preciso
-    public Clue clue() {
-        return clue;
-    }
 }
