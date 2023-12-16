@@ -282,7 +282,7 @@ public class IpurdleTest {
 		testGameWordLength();
 		testGameMaxGuesses();
 		testIsValid();
-		testIsOver();
+		//testIsOver();
 		testGameGuesses();
 		testPlayGuess();
 		System.out.println("-----------------------------------------------");

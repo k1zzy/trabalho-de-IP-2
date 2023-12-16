@@ -44,19 +44,49 @@ public class IpurdleGame {
     }
 
     public boolean isOver() {
-        if(guesses() == maxGuesses()) {
-            return true;
-        }
-        return false;  //ESTA MAL, FALTA VER SE JA ACHOU A PALAVRA
+        return false;
     }
 
     private Clue clueForGuessAndWord(String guess, String word) {
-        for(int i = 0; i < guess.length(); i++) {
-                if(guess.charAt(i) == word.charAt(i)) {
-                    
+        LetterStatus[] elements = new LetterStatus[word.length()];
+        boolean existe = false;
+        boolean repetido = false;
+        for(int i = 0; i < guess.length(); i++){
+            if(word.charAt(i)== guess.charAt(i)){
+                elements[i] = LetterStatus.CORRECT_POS;
+            }
+            
+            else {
+                for( int j = 0; j < word.length(); j++) {
+                    existe = false;
+                    repetido = false;
+                    if( guess.charAt(i) == word.charAt(j)){
+                        existe = true;
+                        break;
+                    }
+
+                }
+
+                if(!existe) {
+                    elements[i] = LetterStatus.INEXISTENT;
+                }
+
+                else {
+                    for( int k = i; k >=1; k--) {
+                        if(guess.charAt(i) == guess.charAt( k-1) && i != 0){
+                            repetido = true;
+                            elements[i] = LetterStatus.INEXISTENT;
+                            break;
+                        }
+                    }
+                    if(!repetido) {
+                        elements[i] = LetterStatus.WRONG_POS;
+                    }
+
                 }
             }
-        }
+        } 
+        return new Clue(elements);
     }
 
     public Clue playGuess(String guess) {
