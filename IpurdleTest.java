@@ -433,14 +433,14 @@ public class IpurdleTest {
 	}
 
 	private static void expectedObtainedValues(String expected, String obtained) {
-		System.out.println(StringColouring.toColoredString(">>> expected: " + expected + " obtained: " + obtained,StringColouring.RED));
+		System.out.println(">>> expected: " + expected + " obtained: " + obtained);
 	}
 	
 	private static void failOnMethod(String s) {
-		System.out.println(StringColouring.toColoredString(">>> failed " + s, StringColouring.RED));
+		System.out.println(">>> failed " + s);
 	}
 
 	private static void passOrFail(boolean error) {
-		System.out.println(error ? StringColouring.toColoredString("FAIL", StringColouring.RED) : "PASS");
+		System.out.println(error ? "FAIL" : "PASS");
 	}
 }

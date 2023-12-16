@@ -51,18 +51,12 @@ public class IpurdleGame {
     }
 
     private Clue clueForGuessAndWord(String guess, String word) {
-        LetterStatus[] elements = new LetterStatus[word.length()];
-
-        for(int i = 0; i < word.length(); i++) {
-            if (word.charAt(i) == guess.charAt(i)) {
-                elements[i] = LetterStatus.CORRECT_POS; // TA MAL CUIDADO GUI
-            } else if (guess.charAt(i) == word.charAt(i)) {
-                elements[i] = LetterStatus.WRONG_POS;
-            } else {
-                elements[i] = LetterStatus.INEXISTENT;
+        for(int i = 0; i < guess.length(); i++) {
+                if(guess.charAt(i) == word.charAt(i)) {
+                    
+                }
             }
         }
-        return new Clue(elements);
     }
 
     public Clue playGuess(String guess) {
