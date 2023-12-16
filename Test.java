@@ -5,7 +5,7 @@ public class Test {
             Clue clue2 = new Clue(22, 3);
 
 
-            System.out.println(pixa());
+            System.out.println();
             System.out.println(clue.orderNumber());
         }
 }
