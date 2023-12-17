@@ -73,7 +73,7 @@ public class IpurdleGame {
         if(guesses() == maxGuesses()) {
             return true;
         }
-        return faltaUmaPalavra();
+        return board.clue().isMax();
     }
 
     /**
