@@ -279,11 +279,11 @@ public class IpurdleTest {
 
 	static void testIpurdleGame() {
 		System.out.println("Testing IpurdleGame class");
-		//testGameWordLength();
-		//testGameMaxGuesses();
-		//testIsValid();
-		//testIsOver();
-		//PASSOU testGameGuesses();
+		testGameWordLength();
+		testGameMaxGuesses();
+		testIsValid();
+		testIsOver();
+		testGameGuesses();
 		testPlayGuess();
 		System.out.println("-----------------------------------------------");
 	}

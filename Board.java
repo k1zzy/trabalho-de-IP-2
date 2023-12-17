@@ -73,17 +73,17 @@ public class Board {
      * @return A representação em formato de string do tabuleiro
      */
     public String toString() {
-        StringBuilder board = new StringBuilder();
+        StringBuilder quadro = new StringBuilder();
         
         for(int i = 0; i < guessNumber; i++) {
-            board.append("+---------------+\n | ");
-            board.append(guess);
-            board.append(" | ");
-            board.append(clue.toString());
-            board.append(" |\n");
+            quadro.append("+---------------+\n | ");
+            quadro.append(guess);
+            quadro.append(" | ");
+            quadro.append(clue.toString());
+            quadro.append(" |\n");
         }
-        board.append("+---------------+\n");
+        quadro.append("+---------------+\n");
 
-        return board.toString();
+        return quadro.toString();
     }
 }

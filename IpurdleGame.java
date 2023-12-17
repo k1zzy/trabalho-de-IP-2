@@ -44,7 +44,10 @@ public class IpurdleGame {
     }
 
     public boolean isOver() {
-        return true;
+        if(guesses() == maxGuesses()) {
+            return true;
+        }
+        return faltaUmaPalavra();
     }
 
     private Clue clueForGuessAndWord(String guess, String word) {
@@ -82,21 +85,23 @@ public class IpurdleGame {
                     if(!repetido) {
                         elements[i] = LetterStatus.WRONG_POS;
                     }
-
                 }
             }
         } 
         return new Clue(elements);
     }
 
-    private int HowManyWordsWithClue(Clue clue, String guess) {
+    private int howManyWordsWithClue(Clue clue, String guess) {
+        guess = guess.toUpperCase();
         int contador = 0;
         String palavraTeste = "";
 
-        for (int i = 0; i < dicionario.length; i++) {
-            palavraTeste = dicionario[i];
-            if (clueForGuessAndWord(guess, palavraTeste) == clue) {
-                contador++;
+        for(int i = 0; i < dicionario.length; i++) {
+            if(!dicionarioUsado[i] && guess.length() == dicionario[i].length()) {
+                palavraTeste = dicionario[i];
+                if(clueForGuessAndWord(guess, palavraTeste).orderNumber() == clue.orderNumber()) {
+                    contador++;
+                }
             }
         }
         return contador;
@@ -104,22 +109,58 @@ public class IpurdleGame {
 
     public Clue playGuess(String guess) {
         guess = guess.toUpperCase();
-        
-        for(int orderNumber = 1; orderNumber <= (int) Math.pow(3, wordLength()); orderNumber++) {
-            if()
+        Clue clue = betterClueForGuess(guess);
+
+        for(int i = 0; i < dicionario.length; i++) {
+            if(!dicionarioUsado[i] && guess.length() == dicionario[i].length() && clueForGuessAndWord(guess, dicionario[i]).orderNumber() != clue.orderNumber()) {
+                dicionarioUsado[i] = true;
+            }
         }
+
+        board.insertGuessAndClue(guess, clue);
+        return clue;
+    }
+
+    private Clue betterClueForGuess(String guess) {
+        guess = guess.toUpperCase();
+
+        int contador = 0;
+        int betterContador = 0;
+        Clue clue = new Clue(1, wordLength());
+        Clue betterClue = new Clue(1, wordLength());
+
+        if(isValid(guess) && faltaUmaPalavra()) {
+            return new Clue((int) Math.pow(3, wordLength()), wordLength());
+        }
+
+        for(int orderNumber = 1; orderNumber <= (int) Math.pow(3, wordLength()); orderNumber++) {
+            clue = new Clue(orderNumber, wordLength());
+            contador = howManyWordsWithClue(clue, guess);
+            
+            if(contador > betterContador) {
+                betterClue = clue;
+                betterContador = contador;
+            }
+        }
+        return betterClue;
     }
 
     public String toString() {
-        StringBuilder board = new StringBuilder();
-        board.append("Ipurdle with words of " + wordLength() + "letters.\n");
-        board.append("Remaining guesses: " + (maxGuesses() - guesses()) + "\n");
-        board.append(board.toString());
+        StringBuilder tabela = new StringBuilder();
+        tabela.append("Ipurdle with words of " + wordLength() + " letters.\n");
+        tabela.append("Remaining guesses: " + (maxGuesses() - guesses()) + "\n");
+        tabela.append(board.toString());
 
-        return board.toString();
+        return tabela.toString();
     }
 
-    private boolean existeMasErrado() {
-        return false;
+    private boolean faltaUmaPalavra() {
+        int contador = 0;
+        for(int i = 0; i < dicionario.length; i++) {
+            if(!dicionarioUsado[i]) {
+                contador++;
+            }
+        }
+        return contador == 1;
     }
 }
