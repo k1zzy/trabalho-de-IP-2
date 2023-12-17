@@ -19,8 +19,9 @@ public class IpurdleGame {
     private Board board;
     
     /**
-     * Construtor para a classe Ipurdle .
-     * @param wordSize O tamanho da palavra para ser adivinhada.
+     * Construtor para a classe Ipurdle.
+     * 
+     * @param wordSize O tamanho da palavra a ser adivinhada.
      * @param maxGuesses O número máximo de guesses permitido.
      */
     public IpurdleGame(int wordSize, int maxGuesses) {
@@ -28,7 +29,8 @@ public class IpurdleGame {
     }
 
     /**
-     * Retorna o tamanho da palavra para ser adivinhada.
+     * Retorna o tamanho da palavra a ser adivinhada.
+     * 
      * @return O tamanho da palavra.
      */
     public int wordLength() {
@@ -37,6 +39,7 @@ public class IpurdleGame {
 
     /**
      * Retorna o número máximo de guesses permitido.
+     * 
      * @return O número máximo de guesses.
      */
     public int maxGuesses() {
@@ -45,6 +48,7 @@ public class IpurdleGame {
 
     /**
      * Retorna o número de guesses já feitos.
+     * 
      * @return O número de guesses.
      */
     public int guesses() {
@@ -53,6 +57,7 @@ public class IpurdleGame {
 
     /**
      * Verifica se uma guess é valida.
+     * 
      * @param guess A guess que é verificada.
      * @return True se a guess é valida, false caso contrário.
      */
@@ -74,6 +79,7 @@ public class IpurdleGame {
 
     /**
      * Verifica se o jogo já acabou.
+     * 
      * @return True se o jogo já acabou, falso caso contrário.
      */
     public boolean isOver() {
@@ -85,6 +91,7 @@ public class IpurdleGame {
 
     /**
      * Cria uma clue para uma dada guess e word.
+     * 
      * @param guess a guess dada.
      * @param word a word dada.
      * @return Um object Clue que representa a clue para a guess e word dadas.
@@ -132,6 +139,7 @@ public class IpurdleGame {
 
     /**
      * Determina quantas palavras do dicionário têm uma dada clue para uma dada guess.
+     * 
      * @param clue A clue dada.
      * @param guess A guess dada.
      * @return O número de palavras do dicionário que têm a clue para a guess dadas.
@@ -153,6 +161,7 @@ public class IpurdleGame {
     }
     /**
      * Faz uma guess e retorna a clue para essa guess.
+     * 
      * @param guess O guess que vai ser feito.
      * @return A clue para o guess.
      */
@@ -172,6 +181,7 @@ public class IpurdleGame {
 
     /**
      * Determina a melhor clue para uma dada guess.
+     * 
      * @param guess A guess dada.
      * @return A melhor clue para a guess.
      */
@@ -201,6 +211,7 @@ public class IpurdleGame {
 
     /**
      * Retorna uma representação do jogo em string.
+     * 
      * @return Representação do jogo em String.
      */
     public String toString() {
@@ -213,6 +224,7 @@ public class IpurdleGame {
     }
     /**
      * Verifica se falta apenas uma palavra no dicionário.
+     * 
      * @return True se faltar apenas uma palavra, falso caso contrário.
      */
     private boolean faltaUmaPalavra() {
