@@ -44,7 +44,7 @@ public class IpurdleGame {
     }
 
     public boolean isOver() {
-        return false;
+        return true;
     }
 
     private Clue clueForGuessAndWord(String guess, String word) {
@@ -89,23 +89,25 @@ public class IpurdleGame {
         return new Clue(elements);
     }
 
-    public Clue playGuess(String guess) {
-        Clue clue = new Clue(1, wordLength());
-        int lowerOrderNumber = 0;
+    private int HowManyWordsWithClue(Clue clue, String guess) {
+        int contador = 0;
+        String palavraTeste = "";
 
-        for(int i = 0; i < dicionario.length; i++) {
-            if(!dicionarioUsado[i]) {
-                clue = clueForGuessAndWord(guess, dicionario[i]);
-                if(clue.orderNumber() < lowerOrderNumber) {
-                    lowerOrderNumber = clue.orderNumber();
-                }
+        for (int i = 0; i < dicionario.length; i++) {
+            palavraTeste = dicionario[i];
+            if (clueForGuessAndWord(guess, palavraTeste) == clue) {
+                contador++;
             }
         }
+        return contador;
+    }
 
-        clue = new Clue(lowerOrderNumber, wordLength());
-        board.insertGuessAndClue(guess, clue);
-
-        return clue;
+    public Clue playGuess(String guess) {
+        guess = guess.toUpperCase();
+        
+        for(int orderNumber = 1; orderNumber <= (int) Math.pow(3, wordLength()); orderNumber++) {
+            if()
+        }
     }
 
     public String toString() {

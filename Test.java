@@ -4,7 +4,9 @@ public class Test {
             Clue clue = new Clue(elements);
             Clue clue2 = new Clue(22, 3);
 
-            System.out.println(clue.orderNumber());
+            IpurdleGame game = new IpurdleGame(5,5);
+
+            System.out.println(game.playGuess("WHILE"));
             //System.out.println();
         }
 }
