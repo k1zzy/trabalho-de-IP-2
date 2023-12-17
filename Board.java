@@ -4,6 +4,7 @@ public class Board {
     private int guessNumber;
     private Clue clue;
     private String guess;
+    private StringBuilder quadro = new StringBuilder("+---------------+\n");
 
     /**
      * Cria um tabuleiro de um jogo de Ipurdle no seu estado inicial, ou seja, vazio
@@ -73,17 +74,22 @@ public class Board {
      * @return A representação em formato de string do tabuleiro
      */
     public String toString() {
-        StringBuilder quadro = new StringBuilder();
-        
-        for(int i = 0; i < guessNumber; i++) {
-            quadro.append("+---------------+\n | ");
-            quadro.append(guess);
-            quadro.append(" | ");
-            quadro.append(clue.toString());
-            quadro.append(" |\n");
-        }
+        quadro.append("| ");
+        quadro.append(guess);
+        quadro.append(" | ");
+        quadro.append(clue.toString());
+        quadro.append(" |\n");
         quadro.append("+---------------+\n");
 
         return quadro.toString();
+    }
+    
+    /**
+     * Retorna a clue correspondente do board
+     *
+     * @return a clue correspondente do board
+     */
+    public Clue clue() {
+        return clue;
     }
 }

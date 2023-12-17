@@ -47,7 +47,7 @@ public class IpurdleGame {
         if(guesses() == maxGuesses()) {
             return true;
         }
-        return faltaUmaPalavra();
+        return board.clue().isMax();
     }
 
     private Clue clueForGuessAndWord(String guess, String word) {
@@ -154,7 +154,7 @@ public class IpurdleGame {
         return tabela.toString();
     }
 
-    private boolean faltaUmaPalavra() {
+    public boolean faltaUmaPalavra() {
         int contador = 0;
         for(int i = 0; i < dicionario.length; i++) {
             if(!dicionarioUsado[i]) {

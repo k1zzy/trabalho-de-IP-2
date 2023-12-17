@@ -10,7 +10,6 @@ public class IpurdleTxt {
         println("O jogo iniciara com palavras de tamanho " + game.wordLength() + " e com " + game.maxGuesses() + " tentativas. Boa sorte!!");
 
         String guess = "";
-        //Clue clue = new Clue(1, game.wordLength());
 
         for(int i = 1; i <= game.maxGuesses(); i++) {
             print("Insere a palavra que achas que e a correta: ");
@@ -21,7 +20,7 @@ public class IpurdleTxt {
                 guess = leitura.nextLine();
             }
 
-            //clue = game.playGuess(guess);
+            game.playGuess(guess);
             println(game.toString());
 
             if(game.isOver()) {
@@ -40,10 +39,20 @@ public class IpurdleTxt {
         leitura.close();
     }
 
+    /**
+     * Imprime uma linha com linebreak
+     * 
+     * @param s string com o texto a imprimir
+     */
     public static void println(String s) {
         System.out.println(s);
     }
 
+    /**
+     * Imprime uma linha sem linebreak
+     * 
+     * @param s string com o texto a imprimir
+     */
     public static void print(String s) {
         System.out.print(s);
     }
