@@ -152,7 +152,7 @@ public class IpurdleGame {
         return contador;
     }
     /**
-     * Faz um guess no jogo.
+     * Faz uma guess e retorna a clue para essa guess.
      * @param guess O guess que vai ser feito.
      * @return A clue para o guess.
      */
