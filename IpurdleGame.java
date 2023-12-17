@@ -11,22 +11,44 @@ public class IpurdleGame {
 
     private Board board;
     
+    /**
+     * Construtor para a classe Ipurdle .
+     * @param wordSize O tamanho da palavra para ser adivinhada.
+     * @param maxGuesses O número máximo de guesses permitido.
+     */
     public IpurdleGame(int wordSize, int maxGuesses) {
         this.board = new Board(wordSize, maxGuesses);
     }
 
+    /**
+     * Retorna o tamanho da palavra para ser adivinhada.
+     * @return O tamanho da palavra.
+     */
     public int wordLength() {
         return board.wordLength();
     }
 
+    /**
+     * Retorna o número máximo de guesses permitido.
+     * @return O número máximo de guesses.
+     */
     public int maxGuesses() {
         return board.maxGuesses();
     }
 
+    /**
+     * Retorna o número de guesses já feitos.
+     * @return O número de guesses.
+     */
     public int guesses() {
         return board.guesses();
     }
 
+    /**
+     * Verifica se uma guess é valida.
+     * @param guess A guess que é verificada.
+     * @return True se a guess é valida, false caso contrário.
+     */
     public boolean isValid(String guess) {
         guess = guess.toUpperCase();
 
@@ -43,6 +65,10 @@ public class IpurdleGame {
         return contador != 0;   
     }
 
+    /**
+     * Verifica se o jogo já acabou.
+     * @return True se o jogo já acabou, falso caso contrário.
+     */
     public boolean isOver() {
         if(guesses() == maxGuesses()) {
             return true;
@@ -50,6 +76,12 @@ public class IpurdleGame {
         return faltaUmaPalavra();
     }
 
+    /**
+     * Cria uma clue para uma dada guess e word.
+     * @param guess a guess dada.
+     * @param word a word dada.
+     * @return Um object Clue que representa a clue para a guess e word dadas.
+     */
     private Clue clueForGuessAndWord(String guess, String word) {
         LetterStatus[] elements = new LetterStatus[word.length()];
         boolean existe = false;
@@ -91,6 +123,12 @@ public class IpurdleGame {
         return new Clue(elements);
     }
 
+    /**
+     * Determina quantas palavras do dicionário têm uma dada clue para uma dada guess.
+     * @param clue A clue dada.
+     * @param guess A guess dada.
+     * @return O número de palavras do dicionário que têm a clue para a guess dadas.
+     */
     private int howManyWordsWithClue(Clue clue, String guess) {
         guess = guess.toUpperCase();
         int contador = 0;
@@ -106,7 +144,11 @@ public class IpurdleGame {
         }
         return contador;
     }
-
+    /**
+     * Faz um guess no jogo.
+     * @param guess O guess que vai ser feito.
+     * @return A clue para o guess.
+     */
     public Clue playGuess(String guess) {
         guess = guess.toUpperCase();
         Clue clue = betterClueForGuess(guess);
@@ -121,6 +163,11 @@ public class IpurdleGame {
         return clue;
     }
 
+    /**
+     * Determina a melhor clue para uma dada guess.
+     * @param guess A guess dada.
+     * @return A melhor clue para a guess.
+     */
     private Clue betterClueForGuess(String guess) {
         guess = guess.toUpperCase();
 
@@ -145,6 +192,10 @@ public class IpurdleGame {
         return betterClue;
     }
 
+    /**
+     * Retorna uma representação do jogo em string.
+     * @return Representação do jogo em String.
+     */
     public String toString() {
         StringBuilder tabela = new StringBuilder();
         tabela.append("Ipurdle with words of " + wordLength() + " letters.\n");
@@ -153,7 +204,10 @@ public class IpurdleGame {
 
         return tabela.toString();
     }
-
+    /**
+     * Verifica se falta apenas uma palavra no dicionário.
+     * @return True se faltar apenas uma palavra, falso caso contrário.
+     */
     private boolean faltaUmaPalavra() {
         int contador = 0;
         for(int i = 0; i < dicionario.length; i++) {
