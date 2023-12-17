@@ -1,5 +1,15 @@
 import java.util.Scanner;
 
+/**
+ * A classe {@code IpurdleTxt} é a classe que contém o jogo IpurdleTxt.
+ * {@code IpurdleTxt}.
+ * 
+ * @author Rodrigo Afonso[fc61839] e Guilherme Ramos[fc61840]
+ * 
+ * Compilar: javac IpurdleTxt.java
+ * Executar: java IpurdleTxt
+ */
+
 public class IpurdleTxt {
     public static void main(String[] args) {
         Scanner leitura = new Scanner(System.in);

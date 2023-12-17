@@ -1,5 +1,12 @@
 import java.lang.String;
 
+/**
+ * A classe {@code IpurdleGame} é a classe que contém o jogo Ipurdle.
+ * {@code IpurdleGame}.
+ * 
+ * @author Rodrigo Afonso[fc61839] e Guilherme Ramos[fc61840]
+ */
+
 public class IpurdleGame {
     String[] dicionario = {"JAVA", "LOOP", "EXIT", "TRUE","LONG", "THIS",
     "BREAK","WHILE","GRADE","PUPIL", "FIELD", "BASIC", "ABORT",

@@ -1,3 +1,10 @@
+/**
+ * A classe {@code Clue} é a classe que contém a clue.
+ * {@code Clue}.
+ * 
+ * @author Rodrigo Afonso[fc61839] e Guilherme Ramos[fc61840]
+ */
+
 public class Clue {
     private LetterStatus[] elements;
     private int wordSize;

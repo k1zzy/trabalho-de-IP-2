@@ -1,3 +1,10 @@
+/**
+ * A classe {@code Board} é a classe que contém o tabuleiro do jogo Ipurdle.
+ * {@code Board}.
+ * 
+ * @author Rodrigo Afonso[fc61839] e Guilherme Ramos[fc61840]
+ */
+
 public class Board {
     private int wordSize;
     private int maxGuesses;
